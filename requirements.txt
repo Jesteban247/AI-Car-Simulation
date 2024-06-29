@@ -1,2 +1,2 @@
-pygame==2.1.2
-neat-python==0.92
+neat-python
+pygame
