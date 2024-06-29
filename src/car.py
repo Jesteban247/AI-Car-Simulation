@@ -52,7 +52,12 @@ class Car:
     def check_collision(self, game_map):
         self.alive = True
         for point in self.corners:
-            if game_map.get_at((int(point[0]), int(point[1]))) == BORDER_COLOR:
+            x, y = int(point[0]), int(point[1])
+            if x < 0 or x >= game_map.get_width() or y < 0 or y >= game_map.get_height():
+                self.alive = False
+                self.record_crash_point()
+                break
+            if game_map.get_at((x, y)) == BORDER_COLOR:
                 self.alive = False
                 self.record_crash_point()
                 break
