@@ -1,0 +1,3 @@
+images/map_1.png;30;30;380;415
+images/map_2.png;40;40;385;210
+images/map_3.png;30;30;380;520
