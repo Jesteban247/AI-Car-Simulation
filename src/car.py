@@ -1,13 +1,16 @@
+"""
+This code defines a Car class for a car simulation game using Pygame. The car has attributes such as size, position, speed, angle, and collision detection. It uses radar for obstacle detection and has an avoidance system for previously recorded crash points.
+"""
+
 import math
 import pygame
 from collections import defaultdict
 
-# Constants
 CAR_SIZE_X = 0
 CAR_SIZE_Y = 0
-BORDER_COLOR = (255, 255, 255, 255)  # Assuming border color is white
-AVOIDANCE_RADIUS = 50  # Radius within which avoidance behavior is triggered
-SECTOR_SIZE = 100  # Size of each sector for sector-based avoidance
+BORDER_COLOR = (255, 255, 255, 255)
+AVOIDANCE_RADIUS = 50
+SECTOR_SIZE = 100
 
 class Car:
     def __init__(self, sizex, sizey, startx, starty):
@@ -33,7 +36,7 @@ class Car:
         self.distance = 0
         self.time = 0
 
-        self.crash_points = defaultdict(int)  # Dictionary to store crash points with weights
+        self.crash_points = defaultdict(int)
 
     def draw(self, screen):
         screen.blit(self.rotated_sprite, self.position)
@@ -136,20 +139,18 @@ class Car:
         return rotated_image, new_rect.topleft
 
     def record_crash_point(self):
-        """Record the crash point and angle if the car crashes, with a weight."""
         if not self.is_alive():
             crash_point = (self.center[0], self.center[1], self.angle)
-            self.crash_points[crash_point] += 1  # Increment weight for this crash point
+            self.crash_points[crash_point] += 1
 
     def avoid_crash_points(self):
-        """Adjust the car's direction if it's near a previous crash point with significant weight."""
         for crash_point, weight in self.crash_points.items():
             point_x, point_y, point_angle = crash_point
             dist = math.sqrt((self.center[0] - point_x) ** 2 + (self.center[1] - point_y) ** 2)
             if dist < AVOIDANCE_RADIUS:
-                avoidance_factor = min(weight, 10)  # Limit the influence of the weight
+                avoidance_factor = min(weight, 10)
                 if point_angle < self.angle:
-                    self.angle += 5 * avoidance_factor  # Adjust more based on weight
+                    self.angle += 5 * avoidance_factor
                 else:
                     self.angle -= 5 * avoidance_factor
-                break  # Adjust only once for the nearest significant crash point
+                break
