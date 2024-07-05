@@ -37,4 +37,4 @@ https://github.com/Jesteban247/Ai-car-simulation/assets/135396733/2f8c98c1-e0f6-
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE]() file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Jesteban247/NEAT-based-Car-Simulation/blob/main/LICENSE) file for details.
