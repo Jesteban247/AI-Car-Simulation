@@ -31,9 +31,7 @@ https://github.com/Jesteban247/Ai-car-simulation/assets/135396733/2f8c98c1-e0f6-
    ```
 
 ## 🙏 Acknowledgements
-- This project was inspired by the NEAT algorithm by Kenneth O. Stanley.
-- Visualization and user interface created using Pygame.
-- This project is inspired by the tutorials from the YouTube channel [NeuralNine](https://www.youtube.com/channel/UC8wZnXYK_CGKlBcZp-GxYPA).
+- This project was inspired by the tutorials from the YouTube channel [NeuralNine](https://www.youtube.com/channel/UC8wZnXYK_CGKlBcZp-GxYPA).
 
 ## 📝 License
 
